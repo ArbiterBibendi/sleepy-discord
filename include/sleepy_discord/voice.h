@@ -3,6 +3,7 @@
 #include "snowflake.h"
 #include "channel.h"
 
+
 namespace SleepyDiscord {
 	//forward declearion
 	struct Server;
@@ -12,7 +13,7 @@ namespace SleepyDiscord {
 	struct VoiceState : public DiscordObject {
 		VoiceState() = default;
 		VoiceState(const nonstd::string_view & rawJSON);
-		VoiceState(const json::Value& json);
+		VoiceState(const json::Value& rawJSON);
 		Snowflake<Server> serverID;
 		Snowflake<Channel> channelID;
 		Snowflake<User> userID;

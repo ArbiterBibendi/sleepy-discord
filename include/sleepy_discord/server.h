@@ -5,6 +5,7 @@
 #include "channel.h"
 #include "snowflake.h"
 #include "cache.h"
+#include "voice.h"
 
 namespace SleepyDiscord {
 	enum Permission : int64_t;
@@ -83,6 +84,7 @@ namespace SleepyDiscord {
 
 		std::list<ServerMember> members;
 		std::list<Channel> channels;
+        std::list<VoiceState> voiceStates;
 
 		std::list<ServerMember>::iterator findMember(const Snowflake<User> userID);
 		std::list<Channel>::iterator findChannel(const Snowflake<Channel> channelID);
@@ -109,8 +111,10 @@ namespace SleepyDiscord {
 				json::pair                           (&Server::MFALevel                   , "mfa_level"                    , json::OPTIONAL_FIELD ),
 				json::pair                           (&Server::joinedAt                   , "joined_at"                    , json::OPTIONAL_FIELD ),
 				json::pair                           (&Server::large                      , "large"                        , json::OPTIONAL_FIELD ),
+                json::pair<json::ContainerTypeHelper>(&Server::voiceStates                , "voice_states"                 , json::OPTIONAL_FIELD ),
 				json::pair<json::ContainerTypeHelper>(&Server::members                    , "members"                      , json::OPTIONAL_FIELD ),
 				json::pair<json::ContainerTypeHelper>(&Server::channels                   , "channels"                     , json::OPTIONAL_FIELD )
+                
 			);
 		JSONStructEnd
 	};

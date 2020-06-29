@@ -1,8 +1,8 @@
 #include "voice.h"
 
 namespace SleepyDiscord {
-	VoiceState::VoiceState(const json::Value & json) :
-		VoiceState(json::fromJSON<VoiceState>(json)) {
+	VoiceState::VoiceState(const json::Value& rawJSON) :
+		VoiceState(json::fromJSON<VoiceState>(rawJSON)) {
 	}
 	VoiceState::VoiceState(const nonstd::string_view & json) :
 		VoiceState(json::fromJSON<VoiceState>(json)) {
