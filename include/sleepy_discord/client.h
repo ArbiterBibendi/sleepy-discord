@@ -420,7 +420,7 @@ namespace SleepyDiscord {
 		//
 		//voice
 		//
-
+		std::list<VoiceConnection> voiceConnections;
 		friend VoiceConnection;
 
 		enum VoiceMode {
@@ -667,7 +667,7 @@ namespace SleepyDiscord {
 		//
 		//voice
 		//
-		std::list<VoiceConnection> voiceConnections;
+		
 		std::forward_list<VoiceContext> voiceContexts;
 		std::forward_list<VoiceContext*> waitingVoiceContexts;
 #ifdef SLEEPY_VOICE_ENABLED

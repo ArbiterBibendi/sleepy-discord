@@ -173,6 +173,7 @@ namespace SleepyDiscord {
 			return this == &right;
 		}
 
+		bool readyToSpeak = false;
 		inline bool isReady() const {
 			return state & State::ABLE;
 		}
